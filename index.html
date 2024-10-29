@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        background-color: rgb(160, 59, 59);
+      }
+      input {
+        border-width: 10px;
+        margin-bottom: 40px;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+      #taskList {
+        padding: 20px;
+        background-color: wheat;
+        height: 500px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TO-DO LIST</h1>
+    <input
+      class="todoInput"
+      style="height: 34px"
+      type="text"
+      placeholder="enter your to-do list"
+    />
+    <button class="addBtn">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+      const todoValue = document.querySelector(".todoInput");
+      const addBtn = document.querySelector(".addBtn");
+      const taskList = document.getElementById("taskList");
+      const tiana = function () {
+        if (todoValue.value != "") {
+          const html = `<li>${todoValue.value}</li>`;
+          taskList.insertAdjacentHTML("afterbegin", html);
+          todoValue.value = "";
+        } else alert("Make an input");
+      };
+      addBtn.addEventListener("click", tiana);
+    </script>
+  </body>
+</html>
